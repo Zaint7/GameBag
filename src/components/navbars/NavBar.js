@@ -1,18 +1,35 @@
-import { CiSearch } from "react-icons/ci";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { LuGamepad2 } from "react-icons/lu";
+
 function NavBar() {
   return (
     <div className="navbar">
-      <div style={{ position: "relative", display: "inline-block"}}>
-        <input
-          type="text"
-          id="search"
-          name="fname"
-          placeholder="Busca tu producto"
-        ></input>
+
+      <button className="gamepad-button" onClick={() => console.log("Main abierto")}>
+          <LuGamepad2 />
+        </button>
+
+      <div className="logo-name">
+        <p>GameBag</p>
+      </div>
+
+      <div className="navbar-behind">
+        <span className="menu-icon">☰</span>
         
-        <span className="search-icon">
-            <CiSearch />
-            </span>
+
+        <div className="search-container">
+          <input
+            type="text"
+            id="search"
+            name="Buscar"
+            placeholder="Busca tu producto"
+          ></input>
+
+          <span className="search-icon">
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </span>
+        </div>
       </div>
     </div>
   );

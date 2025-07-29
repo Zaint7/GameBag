@@ -20,41 +20,67 @@ body {
   align-items: center;
 }
 
+.navbar-behind { 
+  display: flex;
+  align-items: center;
+  gap: 50px; /* Espacio entre los elementos */
+  position: relative;
+}
+
+.menu-icon {
+  color: white;
+  font-size: 1.5em;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-top: -5px; /* Ajusta la posición vertical del icono */
+}
+
+
 .search-container {
   position: relative;
-  display: inline-block;
-  width: 250px;
 }
+
 
 #search{
-  box-shadow: none;
-  border-radius: 5px;
-  margin-left: 100px;
-  width: 250px;
+  width: 100%;
   height: 30px;
-  border-color: white;
-  background-color :rgba(68, 68, 68, 0.3);
   padding-left: 15px;
   padding-right: 35px; 
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color :rgba(68, 68, 68, 0.3);
+  color: white;
+  font-size: 14px; 
+  outline: none; 
+  box-shadow: none;
 }
 
-.search-icon {
+.search-icon{
   position: absolute;
   right: 10px;
+  color: white;
   top: 50%;
   transform: translateY(-50%);
-  pointer-events: none;
-  color: white;
-  background: none; /* sin fondo */
   font-size: 1.2em;
+  pointer-events: none; /* Esto asegura que el icono no interfiera con la entrada de texto */
 }
 
 #search::placeholder {
   color: white; 
   font-size: 1.1em;   
   opacity: 1;     
-  padding-right: "35px"     
+  padding-right: "35px" 
 }
+
+#search:focus{
+  background-color: rgba(68, 68, 68, 0.6);
+  border: 1px solid white;
+}
+
+#search:hover {
+  background-color: #a5a5a5a5;
+}
+
 
 
 .gamebagfondo {
@@ -66,3 +92,27 @@ body {
   background-position: center;
 }
 
+
+.gamepad-button {
+  background: none;
+  cursor: pointer;
+  border: none;
+  font-size: 46px;
+  position: absolute;
+  left: 895px;
+  top: 28px;
+  transform: translateY(-50%);
+  color: white;
+}
+
+
+.logo-name {
+  position: absolute;
+  left: 887px;
+  top: 78%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 14px;
+  font-family:  sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
