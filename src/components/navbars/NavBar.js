@@ -1,22 +1,24 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { LuGamepad2 } from "react-icons/lu";
+import { PiShoppingCartSimple } from "react-icons/pi";
 
 function NavBar() {
   return (
     <div className="navbar">
-
-      <button className="gamepad-button" onClick={() => console.log("Main abierto")}>
-          <LuGamepad2 />
-        </button>
+      <button
+        className="gamepad-button"
+        onClick={() => console.log("Main abierto")}
+      >
+        <LuGamepad2 />
+      </button>
 
       <div className="logo-name">
         <p>GameBag</p>
       </div>
 
       <div className="navbar-behind">
-        <span className="menu-icon">☰</span>
-        
+        <button className="menu-icon">☰</button>
 
         <div className="search-container">
           <input
@@ -31,7 +33,17 @@ function NavBar() {
           </span>
         </div>
       </div>
+
+      <button className="login-button">Iniciar sesión</button>
+
+      <button className="register-button">Registrarse</button>
+
+      <button className="cart-button"><PiShoppingCartSimple /></button>
     </div>
+    
+
+
+
   );
 }
 
