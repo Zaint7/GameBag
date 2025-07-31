@@ -1,3 +1,4 @@
+/*BODY*/
 * {
   margin: 0;
   padding: 0;
@@ -8,26 +9,33 @@ body {
   background-color: #dddddd;
 }
 
+/* Navbar */
+
 .navbar {
   position: sticky;
-  top: 15px; /* Esto mantiene el espacio arriba */
+  top: 10px;
+  z-index: 9999; /* Esto mantiene el espacio arriba */
   margin: 0 20px; /* Espacio lateral, OK aquí */
   padding: 5px 10px;
   height: 60px;
   background-color: rgba(68, 68, 68, 0.8);
+  backdrop-filter: blur(4px); /* opcional para estilo moderno */
   border-radius: 10px;
   display: flex;
   align-items: center;
+
 }
 
 .menu-icon { 
   background-color: transparent;
   border: none;
+  transition: transform 0.2s ease; 
 }
 
 .menu-icon:hover {
   color: white;
   text-shadow: 0 0 7px white, 0 0 7px white;
+  transform: scale(1.1); /* Aumenta el tamaño del icono al pasar el ratón */
 }
 
 
@@ -37,6 +45,8 @@ body {
   gap: 50px; /* Espacio entre los elementos */
   position: relative;
 }
+
+/*Barra de búsqueda*/
 
 .menu-icon {
   color: white;
@@ -85,14 +95,14 @@ body {
 
 #search:focus{
   background-color: rgba(68, 68, 68, 0.6);
-  border: 1px solid white;
+  border: 1px solid white;  
 }
 
 #search:hover {
   background-color: #a5a5a5a5;
 }
 
-
+/* Gamebag background */
 
 .gamebagfondo {
   margin-top: -60px;
@@ -103,19 +113,19 @@ body {
   background-position: center;
 }
 
+/* Gamepad button y logo name*/
 
 .gamepad-button {
   background: none;
   cursor: pointer;
   border: none;
-  font-size: 46px;
+  font-size: 40px;
   position: absolute;
-  left: 895px;
+  left: 898px;
   top: 28px;
   transform: translateY(-50%);
   color: white;
 }
-
 
 .logo-name {
   position: absolute;
@@ -129,20 +139,24 @@ body {
 }
 
 
+/* Botones de inicio de sesión y registro */
+
 .login-button{
   display: flex;
   background: none;
   border: none;
   color: white;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   margin-left: 10px;/* Espacio entre el texto y el botón */
-  transform: translateX(60vw);  
+  transform: translateX(61vw); 
+  transition: transform 0.2s ease; 
 }
 
 .login-button:hover {
   color: white;
   text-shadow: 0 0 7px white, 0 0 10px white;
+  transform: translateX(61vw) scale(1.1);
 }
 
 .register-button{
@@ -150,32 +164,40 @@ body {
   background: none;
   border: none;
   color: white;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   margin-left: 10px;/* Espacio entre el texto y el botón */
-  transform: translateX(62vw);  
+  transform: translateX(63vw);  
+  transition: transform 0.2s ease;
 }
 
 .register-button:hover {
   color: white;
   text-shadow: 0 0 7px white, 0 0 10px white;
+  transform: translateX(63vw) scale(1.1);
 }
 
-.cart-button {
-  display: flex;
+/* Botón del carrito */
+
+.cart-button {                               
+  display: flex;                                 
   background: none;
   border: none;
   color: white;
   font-size: 28px;
   cursor: pointer;
   margin-left: 10px;/* Espacio entre el texto y el botón */
-  transform: translateX(64vw);  
+  transform: translateX(65vw);  
+  transition: transform 0.2s ease;
 }
 
 .cart-button:hover {
-  color: #44b2d0;
+  transform: translateX(65vw) scale(1.1);
+  /* No se cambia el color, se mantiene blanco */
 }
 
+
+/* Card styles */
 .card-custom {
   font-family: 'Roboto', Arial, sans-serif;
   width: 16rem;
@@ -186,17 +208,97 @@ body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
   margin-top: 20px;
-  margin-left: 100px;
+  margin-left: 15px;
 }
+
+.card-custom:hover {  
+  border: 4px solid #44b2d0;
+}
+
+
+.card-img-container {
+  position: relative; /* Necesario para posicionar el icono internamente */
+  padding-top: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+/*favorite-icon*/
+.heart-icon{
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 1.6rem;
+  color: #666666;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.heart-icon:hover {
+  transform: scale(1.1);
+  color: #44b2d0; /* Cambia el color al pasar el ratón */
+}
+
+.heart-icon.active {
+  color: #44b2d0; /* El cart se vuelve negro al hacer click */
+}
+
+/*Cart add icon*/
+.cart-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5rem;
+  color: #666666;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.cart-icon:hover {
+  transform: scale(1.1);
+  color: #44b2d0;
+  
+}
+
+.cart-icon.active {
+  color: #444; /* El cart se vuelve negro al hacer click */
+  font-size: 1.8rem;
+  
+}
+
+.plus-inside {
+  position: absolute;
+  top: 6px;
+  left: 9px;
+  width: 14px;
+  height: 14px;
+  background-color: white;
+  color: #44b2d0;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/*Card Image*/
 
 .card-img {
   width: 100%;
   height: auto;
-  display: block;
+  display: flex;
+  padding-top: 5px;
+  padding-left:  15px;
+  padding-right: 15px;
 }
 
+
 .card-body {
-  padding: 10px;
+  padding: 15px;
+  border-top: 3px solid #bbb;
 }
 
 .card-title {
@@ -206,21 +308,19 @@ body {
 }
 
 .card-text {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-weight: bold;
   font-size: 14px;
   color: #333;
   margin-bottom: 12px;
 }
 
-.card-btn {
-  display: inline-block;
-  padding: 6px 12px;
-  background-color: #007bff;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  font-size: 14px;
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
 
-.card-btn:hover {
-  background-color: #0056b3;
-}
+

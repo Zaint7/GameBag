@@ -1,14 +1,17 @@
 import "./App.css";
 import Fondo from "./components/containers/Fondo";
 import NavBar from "./components/navbars/NavBar";
-import Card from "./components/cards/Card.js";
+import CardGrid from "./components/cards/CardGrid";
 
 function App() {
   return (
     <div>      
       <NavBar/>
       <Fondo/>  
-      <Card/>     
+      <CardGrid />     
+      <CardGrid />  
+      <CardGrid />  
+      <CardGrid />  
     </div>
 
 

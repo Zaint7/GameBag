@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { LuGamepad2 } from "react-icons/lu";
+import { IoGameControllerOutline } from "react-icons/io5";
 import { PiShoppingCartSimple } from "react-icons/pi";
 
 function NavBar() {
@@ -10,7 +10,7 @@ function NavBar() {
         className="gamepad-button"
         onClick={() => console.log("Main abierto")}
       >
-        <LuGamepad2 />
+        <IoGameControllerOutline />
       </button>
 
       <div className="logo-name">

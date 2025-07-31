@@ -1,15 +1,36 @@
-import favicon from "../../images/favicon.png";
+import React, { useState } from 'react';
+import { PiShoppingCartSimple } from 'react-icons/pi';
+import { IoMdHeart,IoMdHeartEmpty } from "react-icons/io";
+import favicon from "../../images/asus.jpg";
+
 
 function Card() {
+  const [inCart, setInCart] = useState(false);
+  const [liked, setLiked] = useState(false);
+  const toggleCart = () => {
+    setInCart(!inCart);}  
+  const toggleLike = () =>{ setLiked(!liked);
+  };
+
   return (
     <div className="card-custom">
+      <div className="card-img-container">
       <img src={favicon} className="card-img" alt="favicon" />
+
+      <div className={`heart-icon ${liked ? "active" : ""}`} onClick={toggleLike}>
+          {liked ? <IoMdHeart /> : <IoMdHeartEmpty />}
+        </div>
+
+      <div className={`cart-icon ${inCart ? "active" : ""}`} 
+          onClick={toggleCart}>
+            <PiShoppingCartSimple />
+          {inCart && <span className="plus-inside">+</span>}
+        </div>
+      </div>
       <div className="card-body">
-        <h5 className="card-title">Card title</h5>
         <p className="card-text">
-          Some quick example text to build on the card title and make up the bulk of the card's content.
+          ASUS TUF Gaming GeForce RTX 4070 Ti Super Edition Tarjeta gráfica
         </p>
-        <a href="#" className="card-btn">Go somewhere</a>
       </div>
     </div>
   );
