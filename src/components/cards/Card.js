@@ -1,29 +1,42 @@
-import React, { useState } from 'react';
-import { PiShoppingCartSimple } from 'react-icons/pi';
-import { IoMdHeart,IoMdHeartEmpty } from "react-icons/io";
+import React, { useState } from "react";
+import { PiShoppingCartSimple } from "react-icons/pi";
+import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 import favicon from "../../images/asus.jpg";
-
 
 function Card() {
   const [inCart, setInCart] = useState(false);
+
   const [liked, setLiked] = useState(false);
+
   const toggleCart = () => {
-    setInCart(!inCart);}  
-  const toggleLike = () =>{ setLiked(!liked);
+    setInCart(!inCart);
+  };
+
+  const toggleLike = () => {
+    setLiked(!liked);
+  };
+
+  const handleImageClick = () => {
+    console.log("Imagen Clickeada");
   };
 
   return (
     <div className="card-custom">
       <div className="card-img-container">
-      <img src={favicon} className="card-img" alt="favicon" />
+        <img src={favicon} className="card-img" alt="favicon" onClick={handleImageClick} style={{cursor:"pointer"}} />
 
-      <div className={`heart-icon ${liked ? "active" : ""}`} onClick={toggleLike}>
+        <div
+          className={`heart-icon ${liked ? "active" : ""}`}
+          onClick={toggleLike}
+        >
           {liked ? <IoMdHeart /> : <IoMdHeartEmpty />}
         </div>
 
-      <div className={`cart-icon ${inCart ? "active" : ""}`} 
-          onClick={toggleCart}>
-            <PiShoppingCartSimple />
+        <div
+          className={`cart-icon ${inCart ? "active" : ""}`}
+          onClick={toggleCart}
+        >
+          <PiShoppingCartSimple />
           {inCart && <span className="plus-inside">+</span>}
         </div>
       </div>

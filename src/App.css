@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #dddddd;
+  background-color: #eeeeee;
 }
 
 /* Navbar */
@@ -88,10 +88,12 @@ body {
 
 #search::placeholder {
   color: white; 
-  font-size: 1.1em;   
+  font-size: 1.1em; 
+  font-family: 'Montserrat', sans-serif;  
   opacity: 1;     
   padding-right: "35px" 
 }
+
 
 #search:focus{
   background-color: rgba(68, 68, 68, 0.6);
@@ -100,17 +102,6 @@ body {
 
 #search:hover {
   background-color: #a5a5a5a5;
-}
-
-/* Gamebag background */
-
-.gamebagfondo {
-  margin-top: -60px;
-  width: 100%;
-  height: 70vh;
-  background-image: url("/src/images/gamebag.gif");
-  background-size: cover;
-  background-position: center;
 }
 
 /* Gamepad button y logo name*/
@@ -147,6 +138,7 @@ body {
   border: none;
   color: white;
   font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
   cursor: pointer;
   margin-left: 10px;/* Espacio entre el texto y el botón */
   transform: translateX(61vw); 
@@ -165,6 +157,7 @@ body {
   border: none;
   color: white;
   font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
   cursor: pointer;
   margin-left: 10px;/* Espacio entre el texto y el botón */
   transform: translateX(63vw);  
@@ -187,15 +180,95 @@ body {
   font-size: 28px;
   cursor: pointer;
   margin-left: 10px;/* Espacio entre el texto y el botón */
-  transform: translateX(65vw);  
+  transform: translateX(64.5vw);  
   transition: transform 0.2s ease;
 }
 
 .cart-button:hover {
-  transform: translateX(65vw) scale(1.1);
+  transform: translateX(64.5vw) scale(1.1);
   /* No se cambia el color, se mantiene blanco */
 }
 
+/* Gamebag background */
+
+.gamebagfondo {
+  margin-top: -60px;
+  width: 100%;
+  height: 70vh;
+  background-image: url("/src/images/gamebag.gif");
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 0;
+}
+
+
+/*View Mode*/
+
+
+
+
+
+
+
+/* Filter styles */
+
+.filter-container {
+  margin-bottom: 25px;
+  margin-top: 10px; 
+}
+
+.filter-dropdown {
+  position: relative;
+  display: inline-block;
+  left: 89vw;
+}
+
+.filter-button {
+  background-color: white;
+  color:black;
+  border: 2px solid #44b2d0;
+  border-radius: 5px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px;
+  transition: transform 0.2s ease, color 0.2s ease;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  width: 150px;  
+}
+
+.arrow {
+  margin-left: 5px;
+  font-size: 1.2em;
+}
+
+.filter-menu {
+  position: absolute;
+  margin-top: 0px;
+  background-color: white;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  min-width: 100%;
+  text-align: center; /* Asegura que el menú esté por encima de otros elementos */
+}
+
+.filter-menu li {
+  padding: 10px;
+  cursor: pointer;
+  color: black;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 14px;
+}
+
+.filter-menu li:hover {
+  background-color:#eeeeee;
+  color: black;
+  border: 2px solid #44b2d0;
+  border-radius: 5px;
+}
 
 /* Card styles */
 .card-custom {
@@ -207,8 +280,8 @@ body {
   background-color: white;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
-  margin-top: 20px;
-  margin-left: 15px;
+  margin-top: 0;
+  padding: 0;
 }
 
 .card-custom:hover {  
@@ -287,10 +360,12 @@ body {
 /*Card Image*/
 
 .card-img {
+
   width: 100%;
   height: auto;
   display: flex;
   padding-top: 5px;
+  padding-bottom: 5px;
   padding-left:  15px;
   padding-right: 15px;
 }
@@ -298,29 +373,46 @@ body {
 
 .card-body {
   padding: 15px;
-  border-top: 3px solid #bbb;
+  border-top: 3px solid #44b2d0;
 }
 
 .card-title {
+  min-height: 40px;
   font-size: 16px;
   margin-bottom: 8px;
   font-weight: bold;
 }
 
 .card-text {
+  min-height: 60px;
   font-family: 'Roboto', Arial, sans-serif;
   font-weight: bold;
   font-size: 14px;
   color: #333;
-  margin-bottom: 12px;
+  margin-bottom: 0px;
+  padding:5px;
 }
 
 
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  gap: 10px;
+  padding-left: 80px;
+  padding-bottom: 0;
+  padding-top: 0;
 }
 
+.card-grid > .card-custom:nth-child(-n+5) {
+  margin-top: 5px; /* solo estas tendrán espacio arriba */
+}
+
+.card-gridmain {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  padding-left: 80px;
+  padding-bottom: 0;
+  padding-top: 50px;
+}
 
