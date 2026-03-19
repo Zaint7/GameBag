@@ -1,4 +1,4 @@
-/*BODY*/
+/* ===== BODY ===== */
 * {
   margin: 0;
   padding: 0;
@@ -9,188 +9,216 @@ body {
   background-color: #eeeeee;
 }
 
-/* Navbar */
-
+/* ===== NAVBAR ===== */
 .navbar {
   position: sticky;
   top: 10px;
-  z-index: 9999; /* Esto mantiene el espacio arriba */
-  margin: 0 20px; /* Espacio lateral, OK aquí */
-  padding: 5px 10px;
+  z-index: 9999;
+  margin: 0 20px;
+  padding: 0 16px;
   height: 60px;
-  background-color: rgba(68, 68, 68, 0.8);
-  backdrop-filter: blur(4px); /* opcional para estilo moderno */
+  background-color: rgba(68, 68, 68, 0.85);
+  backdrop-filter: blur(4px);
   border-radius: 10px;
   display: flex;
   align-items: center;
-
+  justify-content: space-between;
 }
 
-.menu-icon { 
-  background-color: transparent;
-  border: none;
-  transition: transform 0.2s ease; 
+/* IZQUIERDA */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 35%;
+  
+}
+
+.menu-icon {
+  background: none;
+  border: 2px solid transparent;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, border 0.2s ease;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
 }
 
 .menu-icon:hover {
-  color: white;
-  text-shadow: 0 0 7px white, 0 0 7px white;
-  transform: scale(1.1); /* Aumenta el tamaño del icono al pasar el ratón */
+  border: 2px solid rgb(255, 255, 255);
+  text-shadow: none;
 }
-
-
-.navbar-behind { 
-  display: flex;
-  align-items: center;
-  gap: 50px; /* Espacio entre los elementos */
-  position: relative;
-}
-
-/*Barra de búsqueda*/
-
-.menu-icon {
-  color: white;
-  font-size: 1.5em;
-  cursor: pointer;
-  margin-left: 20px;
-  margin-top: -5px; /* Ajusta la posición vertical del icono */
-}
-
 
 .search-container {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
-
-#search{
-  width: 100%;
+#search {
+  width: 200px;
   height: 30px;
   padding-left: 15px;
-  padding-right: 35px; 
+  padding-right: 35px;
   border: 1px solid white;
   border-radius: 5px;
-  background-color :rgba(68, 68, 68, 0.3);
+  background-color: rgba(68, 68, 68, 0.3);
   color: white;
-  font-size: 14px; 
-  outline: none; 
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  outline: none;
   box-shadow: none;
 }
 
-.search-icon{
-  position: absolute;
-  right: 10px;
-  color: white;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.2em;
-  pointer-events: none; /* Esto asegura que el icono no interfiera con la entrada de texto */
-}
-
 #search::placeholder {
-  color: white; 
-  font-size: 1.1em; 
-  font-family: 'Montserrat', sans-serif;  
-  opacity: 1;     
-  padding-right: "35px" 
+  color: white;
+  font-size: 1em;
+  font-family: 'Montserrat', sans-serif;
+  opacity: 1;
 }
 
-
-#search:focus{
+#search:focus {
   background-color: rgba(68, 68, 68, 0.6);
-  border: 1px solid white;  
+  border: 1px solid white;
 }
 
 #search:hover {
   background-color: #a5a5a5a5;
 }
 
-/* Gamepad button y logo name*/
-
-.gamepad-button {
-  background: none;
-  cursor: pointer;
-  border: none;
-  font-size: 40px;
+.search-icon {
   position: absolute;
-  left: 898px;
-  top: 28px;
-  transform: translateY(-50%);
+  right: 10px;
   color: white;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2em;
+  pointer-events: none;
+}
+
+/* CENTRO */
+.navbar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  cursor: pointer;
+}
+
+.gamepad-icon {
+  color: white;
+  font-size: 2.3rem;
+  transition: transform 0.2s ease;
+}
+
+.gamepad-icon:hover {
+  transform: scale(1.2);
 }
 
 .logo-name {
-  position: absolute;
-  left: 887px;
-  top: 78%;
-  transform: translateY(-50%);
   color: white;
-  font-size: 14px;
-  font-family:  sans-serif;
-  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-
-/* Botones de inicio de sesión y registro */
-
-.login-button{
+/* DERECHA */
+.navbar-right {
+  flex: 1;
   display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+.login-button,
+.register-button {
   background: none;
   border: none;
   color: white;
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
   cursor: pointer;
-  margin-left: 10px;/* Espacio entre el texto y el botón */
-  transform: translateX(61vw); 
-  transition: transform 0.2s ease; 
-}
-
-.login-button:hover {
-  color: white;
-  text-shadow: 0 0 7px white, 0 0 10px white;
-  transform: translateX(61vw) scale(1.1);
-}
-
-.register-button{
-  display: flex;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
-  cursor: pointer;
-  margin-left: 10px;/* Espacio entre el texto y el botón */
-  transform: translateX(63vw);  
   transition: transform 0.2s ease;
+  white-space: nowrap;
 }
 
+.login-button:hover,
 .register-button:hover {
-  color: white;
   text-shadow: 0 0 7px white, 0 0 10px white;
-  transform: translateX(63vw) scale(1.1);
+  transform: scale(1.1);
 }
 
-/* Botón del carrito */
-
-.cart-button {                               
-  display: flex;                                 
+.login-button-mobile {
+  display: none;
   background: none;
   border: none;
   color: white;
-  font-size: 28px;
+  font-size: 1.4rem;
   cursor: pointer;
-  margin-left: 10px;/* Espacio entre el texto y el botón */
-  transform: translateX(64.5vw);  
+  align-items: center;
   transition: transform 0.2s ease;
 }
 
-.cart-button:hover {
-  transform: translateX(64.5vw) scale(1.1);
-  /* No se cambia el color, se mantiene blanco */
+.login-button-mobile:hover {
+  transform: scale(1.1);
 }
 
-/* Gamebag background */
+.cart-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
 
+.cart-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -3px;
+  right: -5px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 2px solid #44b2d0;
+  background-color: transparent;
+  pointer-events: none;
+}
+
+.cart-wrapper:hover {  transform: scale(1.1);
+}
+/*
+.cart-button:hover {
+  transform: scale(1.1);
+}*/
+
+/* ===== FONDO ===== */
 .gamebagfondo {
   margin-top: -60px;
   width: 100%;
@@ -201,41 +229,77 @@ body {
   margin-bottom: 0;
 }
 
-
-/*View Mode*/
-
-
-
-
-
-
-
-/* Filter styles */
+/* ===== TOGGLE BUTTONS ===== */
 
 .filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+.view-toggle {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 22px;
+}
+
+.toggle-btn {
+  background: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.toggle-btn.active {
+  background-color: rgba(68, 178, 208, 0.2);
+  color: #44b2d0;
+  box-shadow: inset 0 0 0 2px #44b2d0;
+}
+
+.toggle-btn:not(.active):hover {
+  background-color: #f0f0f0;
+}
+
+
+
+
+
+/* ===== FILTER ===== */
+.filter-container {
   margin-bottom: 25px;
-  margin-top: 10px; 
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
 .filter-dropdown {
   position: relative;
   display: inline-block;
-  left: 89vw;
 }
 
 .filter-button {
   background-color: white;
-  color:black;
+  color: black;
   border: 2px solid #44b2d0;
   border-radius: 5px;
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   padding: 10px;
   transition: transform 0.2s ease, color 0.2s ease;
-  margin-top: 20px;
-  margin-bottom: 0px;
-  width: 150px;  
+  margin-top: 22px;
+  width: 150px;
 }
 
 .arrow {
@@ -252,7 +316,7 @@ body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   z-index: 10;
   min-width: 100%;
-  text-align: center; /* Asegura que el menú esté por encima de otros elementos */
+  text-align: center;
 }
 
 .filter-menu li {
@@ -261,44 +325,45 @@ body {
   color: black;
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 14px;
+  list-style: none;
 }
 
 .filter-menu li:hover {
-  background-color:#eeeeee;
+  background-color: #eeeeee;
   color: black;
   border: 2px solid #44b2d0;
   border-radius: 5px;
 }
 
-/* Card styles */
+/* ===== CARDS ===== */
 .card-custom {
-  font-family: 'Roboto', Arial, sans-serif;
-  width: 16rem;
+  width: 292px;
+  height: 372px;  
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
   background-color: white;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
-  margin-top: 0;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-.card-custom:hover {  
+.card-custom:hover {
   border: 4px solid #44b2d0;
+  box-shadow: 0px 0px 5px 10px #a7dceb;
 }
-
 
 .card-img-container {
-  position: relative; /* Necesario para posicionar el icono internamente */
-  padding-top: 50px;
-  padding-left: 15px;
-  padding-right: 15px;
+  position: relative;
+  padding: 20px 48px 10px 48px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
-/*favorite-icon*/
-.heart-icon{
+.heart-icon {
   position: absolute;
   top: 15px;
   left: 15px;
@@ -310,109 +375,239 @@ body {
 
 .heart-icon:hover {
   transform: scale(1.1);
-  color: #44b2d0; /* Cambia el color al pasar el ratón */
+  color: #44b2d0;
 }
 
 .heart-icon.active {
-  color: #44b2d0; /* El cart se vuelve negro al hacer click */
-}
-
-/*Cart add icon*/
-.cart-icon {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 1.5rem;
-  color: #666666;
-  cursor: pointer;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.cart-icon:hover {
   transform: scale(1.1);
   color: #44b2d0;
-  
 }
 
-.cart-icon.active {
-  color: #444; /* El cart se vuelve negro al hacer click */
-  font-size: 1.8rem;
-  
-}
-
-.plus-inside {
+.cart-icon {
   position: absolute;
-  top: 6px;
-  left: 9px;
-  width: 14px;
-  height: 14px;
-  background-color: white;
-  color: #44b2d0;
-  font-size: 0.8rem;
-  font-weight: bold;
-  border-radius: 50%;
+  top: 10px;
+  right: 10px;
+  font-size: 1.2rem;
+  color: #666666;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease, border 0.2s ease;
+  background-color: #e0e0e0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none;
 }
 
-/*Card Image*/
+.cart-icon:hover {
+  color: #44b2d0;
+  background-color: white;
+  border: 2px solid #44b2d0;
+  transform: scale(1.05);
+}
+
+.cart-icon.active {
+  color: #44b2d0;
+  background-color: white;
+  border: 2px solid #44b2d0;
+  transform: scale(1.05);
+}
 
 .card-img {
-
   width: 100%;
   height: auto;
-  display: flex;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left:  15px;
-  padding-right: 15px;
+  object-fit: contain;
+  display: block;
 }
 
-
 .card-body {
-  padding: 15px;
+  padding: 12px 15px;
   border-top: 3px solid #44b2d0;
+  flex-shrink: 0;
+  min-height: 80px;
 }
 
 .card-title {
-  min-height: 40px;
-  font-size: 16px;
+  font-size: 13px;
   margin-bottom: 8px;
-  font-weight: bold;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  min-height: unset;
 }
 
-.card-text {
-  min-height: 60px;
-  font-family: 'Roboto', Arial, sans-serif;
-  font-weight: bold;
+.card-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin-top: 4px;
+}
+
+.card-price-label {
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
+  font-weight: 600;
   color: #333;
-  margin-bottom: 0px;
-  padding:5px;
+  white-space: nowrap;
 }
 
+.card-price-value {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  color: #44b2d0;
+  text-align: right;
+  flex: 1;
+}
 
+/* Grid principal (página de inicio) */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
-  padding-left: 80px;
-  padding-bottom: 0;
-  padding-top: 0;
+  grid-template-columns: repeat(auto-fit, 292px);
+  gap: 55px;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
 }
 
-.card-grid > .card-custom:nth-child(-n+5) {
-  margin-top: 5px; /* solo estas tendrán espacio arriba */
-}
-
+/* Grid secundario (otra sección) */
 .card-gridmain {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
-  padding-left: 80px;
-  padding-bottom: 0;
-  padding-top: 50px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px 32px;
 }
 
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+  /* Navbar */
+.navbar {
+  position: sticky;
+  top: 10px;
+  z-index: 9999;
+  margin: 0 20px;
+  padding: 0 24px;
+  height: 60px;
+  background-color: rgba(68, 68, 68, 0.85);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 35%;
+}
+
+.navbar-center {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-right {
+  width: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+#search {
+  width: 100%;
+  max-width: 280px;
+  height: 32px;
+  padding-left: 15px;
+  padding-right: 35px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: rgba(68, 68, 68, 0.3);
+  color: white;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  outline: none;
+}
+
+  .login-button,
+  .register-button {
+    display: none;
+  }
+
+  .login-button-mobile {
+    display: flex;
+  }
+
+  .gamepad-icon {
+    font-size: 1.5rem;
+  }
+
+  .logo-name {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  /* Fondo */
+  .gamebagfondo {
+    height: 35vh;
+  }
+
+  /* Filter */
+  .filter-container {
+    padding-right: 16px;
+  }
+
+  .filter-button {
+    margin-top: 12px;
+  }
+
+  /* Cards */
+  .card-grid,
+  .card-gridmain {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 12px 16px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card-grid,
+  .card-gridmain {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 12px 16px;
+    gap: 12px;
+  }
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  z-index: 999;
+}
+
+.scroll-to-top:hover {
+  background-color: rgba(0, 0, 0, 0.75);
+  transform: translateX(-50%) scale(1.1);
+}

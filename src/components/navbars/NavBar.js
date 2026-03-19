@@ -2,48 +2,43 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { IoGameControllerOutline } from "react-icons/io5";
 import { PiShoppingCartSimple } from "react-icons/pi";
+import { FiUser } from "react-icons/fi";
 
 function NavBar() {
   return (
-    <div className="navbar">
-      <button
-        className="gamepad-button"
-        onClick={() => console.log("Main abierto")}
-      >
-        <IoGameControllerOutline />
-      </button>
+    <nav className="navbar">
 
-      <div className="logo-name">
-        <p>GameBag</p>
-      </div>
-
-      <div className="navbar-behind">
+      {/* IZQUIERDA */}
+      <div className="navbar-left">
         <button className="menu-icon">☰</button>
-
         <div className="search-container">
-          <input
-            type="text"
-            id="search"
-            name="Buscar"
-            placeholder="Busca tu producto"
-          ></input>
-
+          <input type="text" id="search" name="Buscar" placeholder="Busca tu producto" />
           <span className="search-icon">
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </span>
         </div>
       </div>
 
-      <button className="login-button">Iniciar sesión</button>
+      {/* CENTRO */}
+      <div className="navbar-center">
+        <div className="logo-container">
+          <IoGameControllerOutline className="gamepad-icon" />
+          <span className="logo-name">GameBag</span>
+        </div>
+      </div>
 
-      <button className="register-button">Registrarse</button>
+      {/* DERECHA */}
+      <div className="navbar-right">
+        <button className="login-button">Iniciar sesión</button>
+        <button className="register-button">Registrarse</button>
+        <button className="login-button-mobile"><FiUser /></button>
+        <div className="cart-wrapper">
+  <PiShoppingCartSimple className="cart-button" onClick={() => {}} />
+  <span className="cart-badge"></span>
+</div>
+      </div>
 
-      <button className="cart-button"><PiShoppingCartSimple /></button>
-    </div>
-    
-
-
-
+    </nav>
   );
 }
 
