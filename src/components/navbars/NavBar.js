@@ -3,17 +3,27 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { IoGameControllerOutline } from "react-icons/io5";
 import { PiShoppingCartSimple } from "react-icons/pi";
 import { FiUser } from "react-icons/fi";
+import { useState } from "react";
 
-function NavBar() {
+
+function NavBar({ onLoginClick }) {
+  const [searchOpen, setSearchOpen] = useState(false);
+
   return (
-    <nav className="navbar">
 
+    <>
+    
+    <nav className="navbar">
       {/* IZQUIERDA */}
       <div className="navbar-left">
         <button className="menu-icon">☰</button>
+        
         <div className="search-container">
-          <input type="text" id="search" name="Buscar" placeholder="Busca tu producto" />
-          <span className="search-icon">
+          <input type="text" id="search" name="Buscar" placeholder="Busca tu producto" 
+            className={`searchOpen ? "search-open" : ""}`}
+          />
+          <span className="search-icon"
+            onClick={() => setSearchOpen(!searchOpen)}>
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </span>
         </div>
@@ -29,16 +39,30 @@ function NavBar() {
 
       {/* DERECHA */}
       <div className="navbar-right">
-        <button className="login-button">Iniciar sesión</button>
+        <button className="login-button" onClick={onLoginClick}>Iniciar sesión</button>
         <button className="register-button">Registrarse</button>
-        <button className="login-button-mobile"><FiUser /></button>
+        <button className="login-button-mobile" onClick={onLoginClick}><FiUser /></button>
         <div className="cart-wrapper">
-  <PiShoppingCartSimple className="cart-button" onClick={() => {}} />
-  <span className="cart-badge"></span>
-</div>
+        <PiShoppingCartSimple className="cart-button" onClick={() => {}} />
+        <span className="cart-badge"></span>
+      </div>
       </div>
 
+      {searchOpen && (
+        <div className="search-bar-mobile">
+
+          <input type= "text"
+           placeholder="Busca tu producto..." 
+           className="search-input-mobile" autoFocus/>
+           
+        </div>  
+      )}
+
     </nav>
+
+
+      
+    </>
   );
 }
 

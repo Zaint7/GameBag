@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BsGrid3X3Gap, BsList } from 'react-icons/bs';
 import "../../App.css";
 
+
 function Filter() {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState("Ordenar por");
