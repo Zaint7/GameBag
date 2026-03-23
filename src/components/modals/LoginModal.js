@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IoClose } from "react-icons/io5";
-function LoginModal({ onClose }) {
+function LoginModal({ onClose, onSwitchToRegister }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -36,7 +36,7 @@ return (
         <button className="modal-submit">Ingresar</button>
 
         <p className="modal-register">¿Todavía no te has unido a nuestra comunidad?{" "}
-            <span className="modal-register-link">¡Regístrate aquí!</span>
+            <span className="modal-register-link" onClick={onSwitchToRegister}>¡Regístrate aquí!</span>
         </p>
     </div>
     </div>

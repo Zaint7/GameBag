@@ -3,10 +3,10 @@ import { BsGrid3X3Gap, BsList } from 'react-icons/bs';
 import "../../App.css";
 
 
-function Filter() {
+function Filter({ viewMode, onViewModeChange }) {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState("Ordenar por");
-    const [viewMode, setViewMode] = useState("grid");
+    /*const [viewMode, setViewMode] = useState("grid");*/
 
     const toggleDropdown = () => setIsOpen(prev => !prev);
 
@@ -22,13 +22,13 @@ function Filter() {
             <div className="view-toggle">
                 <button
                     className={`toggle-btn ${viewMode === "grid" ? "active" : ""}`}
-                    onClick={() => setViewMode("grid")}
+                    onClick={() => onViewModeChange("grid")}
                 >
                     <BsGrid3X3Gap />
                 </button>
                 <button
                     className={`toggle-btn ${viewMode === "list" ? "active" : ""}`}
-                    onClick={() => setViewMode("list")}
+                    onClick={() => onViewModeChange("list")}
                 >
                     <BsList />
                 </button>

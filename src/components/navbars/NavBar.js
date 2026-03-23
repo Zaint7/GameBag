@@ -6,7 +6,7 @@ import { FiUser } from "react-icons/fi";
 import { useState } from "react";
 
 
-function NavBar({ onLoginClick }) {
+function NavBar({ onLoginClick, onRegisterClick }) {
   const [searchOpen, setSearchOpen] = useState(false);
 
   return (
@@ -40,7 +40,7 @@ function NavBar({ onLoginClick }) {
       {/* DERECHA */}
       <div className="navbar-right">
         <button className="login-button" onClick={onLoginClick}>Iniciar sesión</button>
-        <button className="register-button">Registrarse</button>
+        <button className="register-button" onClick={onRegisterClick}>Registrarse</button>
         <button className="login-button-mobile" onClick={onLoginClick}><FiUser /></button>
         <div className="cart-wrapper">
         <PiShoppingCartSimple className="cart-button" onClick={() => {}} />
