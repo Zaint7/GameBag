@@ -1,8 +1,10 @@
 const products = [
+  // ===== TARJETAS GRÁFICAS =====
   {
     id: 1,
     name: "ASUS TUF Gaming GeForce RTX 4070 Ti Super",
     price: 3899000,
+    category: "Tarjetas Gráficas",
     image: require("../images/asus.jpg"),
     description: "GPU de alto rendimiento con arquitectura Ada Lovelace, ideal para gaming 4K y creación de contenido exigente."
   },
@@ -10,78 +12,161 @@ const products = [
     id: 2,
     name: "MSI Gaming GeForce GTX 1650 128-Bit HDMI",
     price: 665900,
+    category: "Tarjetas Gráficas",
     image: require("../images/asus.jpg"),
-    description: "Tarjeta gráfica de gama entrada con bajo consumo energético, perfecta para gaming casual en 1080p."
+    description: "Tarjeta de gama entrada con bajo consumo energético, perfecta para gaming casual en 1080p."
   },
   {
     id: 3,
-    name: "XFX GTS XXX Edition RX 580 8GB Tarjeta gráfica",
-    price: 749900,
-    image: require("../images/asus.jpg"),
-    description: "GPU AMD con 8GB GDDR5, excelente relación precio-rendimiento para juegos en 1080p y 1440p."
-  },
-  {
-    id: 4,
-    name: "MAXSUN GEFORCE GT 1030 4GB GDDR4 GPU Mini",
-    price: 376900,
-    image: require("../images/asus.jpg"),
-    description: "Tarjeta compacta de gama baja ideal para ofimática, multimedia y gaming ligero sin fuente dedicada."
-  },
-  {
-    id: 5,
     name: "Gigabyte Radeon RX 6600 Eagle 8GB GDDR6",
     price: 1250000,
+    category: "Tarjetas Gráficas",
     image: require("../images/asus.jpg"),
     description: "GPU AMD de gama media con 8GB GDDR6, diseñada para gaming fluido en 1080p con ray tracing."
   },
   {
-    id: 6,
+    id: 4,
     name: "ASUS ROG Strix GeForce RTX 3080 10GB GDDR6X",
     price: 4200000,
+    category: "Tarjetas Gráficas",
     image: require("../images/asus.jpg"),
     description: "Tarjeta insignia de la línea ROG con triple ventilador, dominante en resoluciones 4K y VR."
   },
+
+  // ===== MEMORIAS RAM =====
+  {
+    id: 5,
+    name: "Corsair Vengeance RGB 16GB DDR4 3200MHz",
+    price: 320000,
+    category: "Memorias RAM",
+    image: require("../images/asus.jpg"),
+    description: "Kit de memoria DDR4 con iluminación RGB, alto rendimiento para gaming y multitarea exigente."
+  },
+  {
+    id: 6,
+    name: "Kingston Fury Beast 32GB DDR5 5200MHz",
+    price: 780000,
+    category: "Memorias RAM",
+    image: require("../images/asus.jpg"),
+    description: "Memoria DDR5 de última generación, ideal para plataformas Intel y AMD de nueva generación."
+  },
   {
     id: 7,
-    name: "Sapphire Pulse Radeon RX 7600 8GB GDDR6",
-    price: 1450000,
+    name: "G.Skill Trident Z5 RGB 32GB DDR5 6000MHz",
+    price: 950000,
+    category: "Memorias RAM",
     image: require("../images/asus.jpg"),
-    description: "GPU AMD de nueva generación con eficiencia mejorada, ideal para 1080p competitivo y streaming."
+    description: "RAM de alto desempeño con perfil XMP 3.0, diseñada para overclockers y entusiastas del PC."
   },
   {
     id: 8,
-    name: "MSI GeForce RTX 4060 Gaming X 8GB GDDR6",
-    price: 1890000,
+    name: "TeamGroup T-Force Delta 16GB DDR4 3600MHz",
+    price: 290000,
+    category: "Memorias RAM",
     image: require("../images/asus.jpg"),
-    description: "Tarjeta NVIDIA con DLSS 3 y Frame Generation, excelente para gaming 1080p y 1440p moderno."
+    description: "Memoria DDR4 con diseño espejo RGB, equilibrio perfecto entre precio y rendimiento gaming."
   },
+
+  // ===== PLACAS MADRE =====
   {
     id: 9,
-    name: "Zotac Gaming GeForce RTX 3060 Twin Edge 12GB",
-    price: 1620000,
+    name: "ASUS ROG Strix B650E-F Gaming WiFi",
+    price: 1850000,
+    category: "Placas Madre",
     image: require("../images/asus.jpg"),
-    description: "GPU con 12GB de VRAM, ideal para gaming 1440p, diseño 3D y cargas de trabajo en IA."
+    description: "Motherboard AMD AM5 con PCIe 5.0, WiFi 6E y soporte DDR5 para procesadores Ryzen 7000."
   },
   {
     id: 10,
-    name: "PowerColor Hellhound Radeon RX 6700 XT 12GB",
-    price: 2100000,
+    name: "MSI MAG Z790 Tomahawk WiFi DDR4",
+    price: 1450000,
+    category: "Placas Madre",
     image: require("../images/asus.jpg"),
-    description: "Tarjeta AMD de alto rendimiento con 12GB GDDR6, competitiva en 1440p con excelente cooling."
+    description: "Placa Intel LGA1700 con soporte DDR4, ideal para builds de alto rendimiento con Core i9."
   },
   {
     id: 11,
-    name: "Gigabyte GeForce RTX 4090 Gaming OC 24GB",
-    price: 8900000,
+    name: "Gigabyte B550 AORUS Elite AX V2",
+    price: 890000,
+    category: "Placas Madre",
     image: require("../images/asus.jpg"),
-    description: "La GPU más potente del mercado con 24GB GDDR6X, imbatible en 4K, VR y renderizado profesional."
+    description: "Motherboard AMD AM4 con WiFi integrado, perfecta para Ryzen 5000 con buen precio-rendimiento."
   },
   {
     id: 12,
-    name: "EVGA GeForce RTX 3070 XC3 Ultra Gaming 8GB",
-    price: 2850000,
+    name: "ASRock Z690 Phantom Gaming 4 DDR4",
+    price: 750000,
+    category: "Placas Madre",
     image: require("../images/asus.jpg"),
-    description: "GPU equilibrada con triple ventilador iCX3, excelente para gaming 1440p y producción creativa."
+    description: "Placa Intel con soporte PCIe 5.0 y DDR4, opción económica para plataforma Alder Lake."
+  },
+
+  // ===== MONITORES =====
+  {
+    id: 13,
+    name: "LG UltraGear 27GP850-B 27\" 165Hz QHD",
+    price: 1650000,
+    category: "Monitores",
+    image: require("../images/asus.jpg"),
+    description: "Monitor gaming QHD con panel Nano IPS, 1ms de respuesta y 165Hz para gaming competitivo."
+  },
+  {
+    id: 14,
+    name: "Samsung Odyssey G5 34\" Curvo WQHD 165Hz",
+    price: 2100000,
+    category: "Monitores",
+    image: require("../images/asus.jpg"),
+    description: "Monitor ultrawide curvo con resolución WQHD, experiencia inmersiva para gaming y productividad."
+  },
+  {
+    id: 15,
+    name: "ASUS TUF Gaming VG279QM 27\" 280Hz FHD",
+    price: 1350000,
+    category: "Monitores",
+    image: require("../images/asus.jpg"),
+    description: "Monitor Full HD con 280Hz y ELMB Sync, diseñado para eSports y gaming de alta velocidad."
+  },
+  {
+    id: 16,
+    name: "AOC Q27G2S 27\" QHD IPS 165Hz",
+    price: 980000,
+    category: "Monitores",
+    image: require("../images/asus.jpg"),
+    description: "Monitor QHD con panel IPS y 165Hz, excelente relación calidad-precio para gaming 1440p."
+  },
+
+  // ===== PERIFÉRICOS =====
+  {
+    id: 17,
+    name: "Logitech G Pro X Superlight 2 Mouse",
+    price: 620000,
+    category: "Periféricos",
+    image: require("../images/asus.jpg"),
+    description: "Mouse inalámbrico ultraligero de 60g con sensor HERO 2, el favorito de los jugadores profesionales."
+  },
+  {
+    id: 18,
+    name: "Razer BlackWidow V4 Pro Teclado Mecánico",
+    price: 890000,
+    category: "Periféricos",
+    image: require("../images/asus.jpg"),
+    description: "Teclado mecánico inalámbrico con switches Razer Yellow, RGB Chroma y rueda multimedia dedicada."
+  },
+  {
+    id: 19,
+    name: "HyperX Cloud Alpha Wireless Headset",
+    price: 750000,
+    category: "Periféricos",
+    image: require("../images/asus.jpg"),
+    description: "Auriculares gaming con hasta 300 horas de batería, sonido DTS y micrófono con cancelación de ruido."
+  },
+  {
+    id: 20,
+    name: "SteelSeries Arctis Nova Pro Wireless",
+    price: 1200000,
+    category: "Periféricos",
+    image: require("../images/asus.jpg"),
+    description: "Headset premium con sistema de batería intercambiable, audio Hi-Fi y cancelación activa de ruido."
   },
 ];
 
