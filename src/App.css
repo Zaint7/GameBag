@@ -213,10 +213,9 @@ body {
 
 .cart-wrapper:hover {  transform: scale(1.1);
 }
-/*
-.cart-button:hover {
-  transform: scale(1.1);
-}*/
+
+
+
 
 /* ===== FONDO ===== */
 .gamebagfondo {
@@ -228,6 +227,7 @@ body {
   background-position: center;
   margin-bottom: 0;
 }
+
 
 /* ===== TOGGLE BUTTONS ===== */
 
@@ -364,6 +364,95 @@ body {
   border: 2px solid #44b2d0;
   border-radius: 5px;
 }
+
+
+
+
+
+
+/* ===== CARRUSEL 3D ===== */
+.category-carousel {
+  margin-bottom: 60px;
+}
+
+.carousel-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.carousel3d-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 40px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel3d-card {
+  position: absolute;
+  width: 280px;
+  height: 100%;
+  left: 50%;
+  margin-left: -140px;
+  transform:
+    rotateY(calc(var(--offset) * 8deg))
+    scaleX(calc(1 - var(--abs-offset) * 0.08))
+    scaleY(calc(1 - var(--abs-offset) * 0.08))
+    translateZ(calc(var(--abs-offset) * -60px))
+    translateX(calc(var(--direction) * var(--abs-offset) * 300px));
+  filter: blur(calc(var(--abs-offset) * 1.5px));
+  transition: all 0.4s ease-out;
+}
+
+.carousel3d {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  height: 400px;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  flex-shrink: 0;
+}
+
+/* Botones */
+.carousel3d-btn {
+  width: auto;
+  height: auto;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 2px solid #44b2d0;
+  background-color: white;
+  color: #44b2d0;
+  font-size: 2.6rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 10;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.carousel3d-btn:hover {
+  background-color: #44b2d0;
+  color: white;
+  transform: scale(1.05);
+}
+
+.carousel3d-btn svg {
+  display: block;
+  margin: 0;
+}
+
+
+
 
 /* ===== CARDS ===== */
 
