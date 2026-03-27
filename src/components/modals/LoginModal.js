@@ -18,7 +18,7 @@ return (
 
         <input
         type="email"
-        className="modal-input"
+        className="modal-input-login-email"
         placeholder="Ingresa tu email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
@@ -26,14 +26,14 @@ return (
 
         <input
         type="password"
-        className="modal-input"
+        className="modal-input-login-password"
         placeholder="Ingresa tu contraseña"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         />
 
         <span className="modal-forgot">¿Olvidaste tu contraseña?</span>
-        <button className="modal-submit">Ingresar</button>
+        <button className="modal-submit-login">Ingresar</button>
 
         <p className="modal-register">¿Todavía no te has unido a nuestra comunidad?{" "}
             <span className="modal-register-link" onClick={onSwitchToRegister}>¡Regístrate aquí!</span>

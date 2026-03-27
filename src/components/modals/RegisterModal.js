@@ -41,7 +41,7 @@ function RegisterModal({ onClose, onSwitchToLogin }) {
 </div>
 
         {/* COLUMNA DERECHA */}
-        <div className="register-right">
+      <div className="register-right">
           <button className="modal-close" onClick={onClose}><IoClose /></button>
           <h2 className="modal-title">Regístrate</h2>
 
@@ -50,15 +50,17 @@ function RegisterModal({ onClose, onSwitchToLogin }) {
           <input className="modal-input" name="correo" type="email" placeholder="Correo" onChange={handleChange} />
 
           <div className="register-row">
-            <select className="modal-input register-select" name="tipoDoc" onChange={handleChange}>
+            <select className="modal-input-register-select" name="tipoDoc" onChange={handleChange}>
               <option value="">Tipo de documento</option>
               <option value="CC">Cédula de ciudadanía</option>
-              <option value="TI">Tarjeta de identidad</option>
               <option value="CE">Cédula extranjera</option>
               <option value="PP">Pasaporte</option>
             </select>
-            <input className="modal-input" name="numeroDoc" placeholder="Número" onChange={handleChange} />
-          </div>
+            <input className="modal-input-doc" name="numeroDoc" placeholder="Número" onChange={handleChange} />
+            </div>
+
+            
+          <input className="fecha-nacimiento" type="date" name="fechaNacimiento" placeholder="Selecciona tu Fecha de Nacimiento"/>
 
           <input className="modal-input" name="password" type="password" placeholder="Contraseña" onChange={handleChange} />
           <input className="modal-input" name="confirmPassword" type="password" placeholder="Confirmar Contraseña" onChange={handleChange} />
@@ -66,14 +68,14 @@ function RegisterModal({ onClose, onSwitchToLogin }) {
           <p className="register-section-title">Información de dirección</p>
 
           <div className="register-row">
-            <select className="modal-input register-select" name="departamento" onChange={handleChange}>
+            <select className="modal-input-register-select-ciudad" name="departamento" onChange={handleChange}>
               <option value="">Departamento</option>
               <option value="ANT">Antioquia</option>
               <option value="CUN">Cundinamarca</option>
               <option value="VAC">Valle del Cauca</option>
               <option value="ATL">Atlántico</option>
             </select>
-            <select className="modal-input register-select" name="ciudad" onChange={handleChange}>
+            <select className="modal-input-register-select-ciudad" name="ciudad" onChange={handleChange}>
               <option value="">Ciudad</option>
               <option value="MED">Medellín</option>
               <option value="BOG">Bogotá</option>
@@ -83,9 +85,10 @@ function RegisterModal({ onClose, onSwitchToLogin }) {
           </div>
 
           <div className="register-row">
-            <input className="modal-input" name="telefono" placeholder="Teléfono" onChange={handleChange} />
-            <input className="modal-input" name="direccion" placeholder="Dirección" onChange={handleChange} />
+            <input className="modal-input-tel" name="telefono" placeholder="Teléfono" onChange={handleChange} />
+            <input className="modal-input-tel" name="direccion" placeholder="Dirección" onChange={handleChange} />
           </div>
+
 
           <div className="register-checks">
             <label className="register-check-label">
@@ -99,12 +102,13 @@ function RegisterModal({ onClose, onSwitchToLogin }) {
             <label className="register-check-label">
               <input type="checkbox" />
                 <span>Autorizo el tratamiento de mis datos personales según la <span className="register-link">Política de tratamiento de datos</span> de GameBag.</span>
-            </label>
-
-            
+            </label>            
           </div>
 
-          <button className="modal-submit">Crear cuenta</button>
+          <button className="modal-submit-register">Crear cuenta</button>
+          <span className="register-switch-mobile" onClick={onSwitchToLogin}>
+  ¿Ya eres usuario? <strong>Inicia Sesión</strong>
+</span>
         </div>
 
       </div>
