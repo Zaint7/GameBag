@@ -59,7 +59,7 @@ function RegisterModal({ onClose, onSwitchToLogin }) {
             <input className="modal-input-doc" name="numeroDoc" placeholder="Número" onChange={handleChange} />
             </div>
 
-            
+            <p className="fecha-nacimiento-titulo">Selecciona tu fecha de nacimiento:</p>
           <input className="fecha-nacimiento" type="date" name="fechaNacimiento" placeholder="Selecciona tu Fecha de Nacimiento"/>
 
           <input className="modal-input" name="password" type="password" placeholder="Contraseña" onChange={handleChange} />

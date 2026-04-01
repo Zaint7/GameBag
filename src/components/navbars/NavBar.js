@@ -4,64 +4,66 @@ import { IoGameControllerOutline } from "react-icons/io5";
 import { PiShoppingCartSimple } from "react-icons/pi";
 import { FiUser } from "react-icons/fi";
 import { useState } from "react";
+import { useCart } from "../../CartContext";
 
-
-function NavBar({ onLoginClick, onRegisterClick }) {
+function NavBar({ onLoginClick, onRegisterClick, onMenuClick }) {
   const [searchOpen, setSearchOpen] = useState(false);
+  const { cartCount } = useCart();
 
   return (
-
     <>
-    
-    <nav className="navbar">
-      {/* IZQUIERDA */}
-      <div className="navbar-left">
-        <button className="menu-icon">☰</button>
-        
-        <div className="search-container">
-          <input type="text" id="search" name="Buscar" placeholder="Busca tu producto" 
-            className={`searchOpen ? "search-open" : ""}`}
-          />
-          <span className="search-icon"
-            onClick={() => setSearchOpen(!searchOpen)}>
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
-          </span>
+      <nav className="navbar">
+        {/* IZQUIERDA */}
+        <div className="navbar-left">
+          <button className="menu-icon" onClick={onMenuClick}>☰</button>
+
+          <div className="search-container">
+            <input
+              type="text"
+              id="search"
+              name="Buscar"
+              placeholder="Busca tu producto"
+              className={searchOpen ? "search-open" : ""}
+            />
+            <span className="search-icon" onClick={() => setSearchOpen(!searchOpen)}>
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </span>
+          </div>
         </div>
-      </div>
 
-      {/* CENTRO */}
-      <div className="navbar-center">
-        <div className="logo-container">
-          <IoGameControllerOutline className="gamepad-icon" />
-          <span className="logo-name">GameBag</span>
+        {/* CENTRO */}
+        <div className="navbar-center">
+          <div className="logo-container">
+            <IoGameControllerOutline className="gamepad-icon" />
+            <span className="logo-name">GameBag</span>
+          </div>
         </div>
-      </div>
 
-      {/* DERECHA */}
-      <div className="navbar-right">
-        <button className="login-button" onClick={onLoginClick}>Iniciar sesión</button>
-        <button className="register-button" onClick={onRegisterClick}>Registrarse</button>
-        <button className="login-button-mobile" onClick={onLoginClick}><FiUser /></button>
-        <div className="cart-wrapper">
-        <PiShoppingCartSimple className="cart-button" onClick={() => {}} />
-        <span className="cart-badge"></span>
-      </div>
-      </div>
+        {/* DERECHA */}
+        <div className="navbar-right">
+          <button className="login-button" onClick={onLoginClick}>Iniciar sesión</button>
+          <button className="register-button" onClick={onRegisterClick}>Registrarse</button>
+          <button className="login-button-mobile" onClick={onLoginClick}><FiUser /></button>
 
-      {searchOpen && (
-        <div className="search-bar-mobile">
+          <div className="cart-wrapper">
+            <PiShoppingCartSimple className="cart-button" onClick={() => {}} />
+            {cartCount > 0 && (
+              <span className="cart-badge">{cartCount}</span>
+            )}
+          </div>
+        </div>
 
-          <input type= "text"
-           placeholder="Busca tu producto..." 
-           className="search-input-mobile" autoFocus/>
-           
-        </div>  
-      )}
-
-    </nav>
-
-
-      
+        {searchOpen && (
+          <div className="search-bar-mobile">
+            <input
+              type="text"
+              placeholder="Busca tu producto..."
+              className="search-input-mobile"
+              autoFocus
+            />
+          </div>
+        )}
+      </nav>
     </>
   );
 }

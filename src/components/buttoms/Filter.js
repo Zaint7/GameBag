@@ -2,18 +2,17 @@ import React, { useState } from 'react';
 import { BsGrid3X3Gap, BsList } from 'react-icons/bs';
 import "../../App.css";
 
-
-function Filter({ viewMode, onViewModeChange }) {
+function Filter({ viewMode, onViewModeChange, onSortChange }) {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState("Ordenar por");
-    /*const [viewMode, setViewMode] = useState("grid");*/
 
     const toggleDropdown = () => setIsOpen(prev => !prev);
 
-    const selectOption = (option) => {
-        setSelectedOption(option);
+    const selectOption = (label, value) => {
+        setSelectedOption(label);
         setIsOpen(false);
-    }
+        if (onSortChange) onSortChange(value);
+    };
 
     return (
         <div className="filter-container">
@@ -41,9 +40,9 @@ function Filter({ viewMode, onViewModeChange }) {
                 </button>
                 {isOpen && (
                     <ul className="filter-menu">
-                        <li onClick={() => selectOption('Precio Alto')}>Precio Alto</li>
-                        <li onClick={() => selectOption('Precio Bajo')}>Precio Bajo</li>
-                        <li onClick={() => selectOption('Nombre')}>Nombre A-Z</li>
+                        <li onMouseDown={() => selectOption('Precio Alto', 'price-desc')}>Precio Alto</li>
+                        <li onMouseDown={() => selectOption('Precio Bajo', 'price-asc')}>Precio Bajo</li>
+                        <li onMouseDown={() => selectOption('Nombre A-Z', 'name-asc')}>Nombre A-Z</li>
                     </ul>
                 )}
             </div>

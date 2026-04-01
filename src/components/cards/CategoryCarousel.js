@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Card from "./Card";
 
-function CategoryCarousel({ products, viewMode }) {
+function CategoryCarousel({ products, viewMode, subtitle }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const prev = () => setActiveIndex((i) => (i - 1 + products.length) % products.length);
@@ -9,7 +9,7 @@ function CategoryCarousel({ products, viewMode }) {
 
   return (
     <div className="category-carousel">
-      <p className="carousel-subtitle">🔥 Recomendado</p>
+      <p className="carousel-subtitle">{subtitle}</p>
 
       <div className="carousel3d-wrapper">
         <button className="carousel3d-btn" onClick={prev}>&#8249;</button>
