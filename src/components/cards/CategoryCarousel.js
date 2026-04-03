@@ -37,6 +37,7 @@ function CategoryCarousel({ products, viewMode, subtitle }) {
                   image={product.image}
                   description={product.description}
                   viewMode={viewMode}
+                  id={product.id}
                 />
               </div>
             );

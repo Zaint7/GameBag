@@ -35,6 +35,7 @@ function CardGrid({ viewMode, sortBy }) {
                 .map(product => (
                   <Card
                     key={product.id}
+                    id={product.id}
                     name={product.name}
                     price={product.price}
                     image={product.image}

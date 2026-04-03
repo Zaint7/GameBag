@@ -11,8 +11,9 @@ import ScrollToTop from "./components/buttoms/ScrollToTop";
 import Sidebar from "./components/navbars/Sidebar";
 import LoginModal from "./components/modals/LoginModal";
 import RegisterModal from "./components/modals/RegisterModal";
+import ProductDetail from "./components/cards/ProductDetail";
 
-function MainPage({ onLoginClick, onRegisterClick }) {
+function MainPage() {
   const [viewMode, setViewMode] = useState("grid");
   const [sortBy, setSortBy] = useState("");
 
@@ -43,8 +44,9 @@ function App() {
 
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/categoria/:slug" element={<div style={{padding: "40px", color: "#333"}}>Página de categoría — próximamente</div>} />
-          <Route path="/categoria/:slug/:sub" element={<div style={{padding: "40px", color: "#333"}}>Subcategoría — próximamente</div>} />
+          <Route path="/producto/:id" element={<ProductDetail />} />
+          <Route path="/categoria/:slug" element={<div style={{ padding: "40px", color: "#333", fontFamily: "Montserrat" }}>Página de categoría — próximamente</div>} />
+          <Route path="/categoria/:slug/:sub" element={<div style={{ padding: "40px", color: "#333", fontFamily: "Montserrat" }}>Subcategoría — próximamente</div>} />
         </Routes>
 
         <ScrollToTop />
