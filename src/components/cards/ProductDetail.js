@@ -10,6 +10,8 @@ import products from "../../data/products";
 import Card from "./Card";
 import { useCart } from "../../CartContext";
 
+
+
 function StarRating({ rating = 4.5 }) {
   const stars = [];
   for (let i = 1; i <= 5; i++) {
@@ -24,15 +26,18 @@ function StarRating({ rating = 4.5 }) {
   return <div className="star-rating">{stars}</div>;
 }
 
-function ProductDetail({ viewMode }) {
+function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { addToCart } = useCart();
   const [liked, setLiked] = useState(false);
-  const [inCart, setInCart] = useState(false);
-  const [activeImg, setActiveImg] = useState(0);
-
   const product = products.find((p) => p.id === parseInt(id));
+  const { cartItems } = useCart();
+  const inCart = cartItems.some((item) => item.id === product.id);
+  const [activeImg, setActiveImg] = useState(0);
+  
+
+  
 
   if (!product) {
     return (
@@ -43,17 +48,14 @@ function ProductDetail({ viewMode }) {
     );
   }
 
-  // Miniaturas: usamos la misma imagen 4 veces (cuando tengas múltiples imágenes las pasas aquí)
   const images = [product.image, product.image, product.image, product.image];
 
-  // Tag label
   const tagMap = {
     "recomendado": "🔥 Recomendado",
     "alta-gama": "⭐ Alta Gama",
     "baja-gama": "💰 Mejor Precio",
   };
 
-  // Productos relacionados (misma categoría, distinto id)
   const related = products
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 6);
@@ -61,10 +63,10 @@ function ProductDetail({ viewMode }) {
   const formatPrice = (value) =>
     value.toLocaleString("es-CO", { style: "currency", currency: "COP", minimumFractionDigits: 0 });
 
-  const handleAddToCart = () => {
-    if (!inCart) addToCart();
-    setInCart(true);
-  };
+const handleAddToCart = () => {
+  if (!inCart) addToCart({ id: product.id, name: product.name, price: product.price, image: product.image });
+  
+};
 
   return (
     <div className="detail-page">
@@ -74,52 +76,37 @@ function ProductDetail({ viewMode }) {
         <IoArrowBack /> Volver
       </button>
 
-      {/* Contenedor principal */}
-      <div className="detail-main">
+      {/* ===== ZONA 1: HEADER — Nombre + Tag ===== */}
+      <div className="detail-header">
+        <span className="detail-tag-badge">{tagMap[product.tag]}</span>
+        <h1 className="detail-name">{product.name}</h1>
+      </div>
 
-        {/* COLUMNA IZQUIERDA — Galería */}
-        <div className="detail-gallery">
-          <div className="detail-img-main">
-            <img src={images[activeImg]} alt={product.name} />
-          </div>
-          <div className="detail-price-row">
-            <button className="detail-arrow" onClick={() => setActiveImg((i) => (i - 1 + images.length) % images.length)}>&#8249;</button>
-            <span className="detail-price-label">Precio</span>
-            <span className="detail-price-value">{formatPrice(product.price)}</span>
-            <button className="detail-arrow" onClick={() => setActiveImg((i) => (i + 1) % images.length)}>&#8250;</button>
-          </div>
-          <div className="detail-thumbnails">
-            {images.map((img, i) => (
-              <div
-                key={i}
-                className={`detail-thumb ${activeImg === i ? "active" : ""}`}
-                onClick={() => setActiveImg(i)}
-              >
-                <img src={img} alt={`${product.name} ${i + 1}`} />
-              </div>
-            ))}
-          </div>
-          
-          {/* Descripción */}
-          <div className="detail-card detail-description-card">
-            <h3 className="detail-card-title">📋 Descripción</h3>
-            <p className="detail-description-text">{product.description}</p>
-          </div>
+      {/* ===== ZONA 2: GALERÍA + INFO ===== */}
+      <div className="detail-zone2">
 
-
-
+        {/* Miniaturas verticales */}
+        <div className="detail-thumbs-vertical">
+          {images.map((img, i) => (
+            <div
+              key={i}
+              className={`detail-thumb ${activeImg === i ? "active" : ""}`}
+              onClick={() => setActiveImg(i)}
+            >
+              <img src={img} alt={`${product.name} ${i + 1}`} />
+            </div>
+          ))}
         </div>
 
-        {/* COLUMNA DERECHA — Info */}
-        <div className="detail-info">
+        {/* Imagen principal */}
+        <div className="detail-img-main">
+          <button className="detail-arrow left" onClick={() => setActiveImg((i) => (i - 1 + images.length) % images.length)}>&#8249;</button>
+          <img src={images[activeImg]} alt={product.name} />
+          <button className="detail-arrow right" onClick={() => setActiveImg((i) => (i + 1) % images.length)}>&#8250;</button>
+        </div>
 
-          {/* Badge de tag */}
-          <span className="detail-tag-badge">{tagMap[product.tag]}</span>
-
-          {/* Nombre */}
-          <h1 className="detail-name">{product.name}</h1>
-
-          {/* Rating + stock */}
+        {/* Panel derecho — precio, rating, botones */}
+        <div className="detail-panel">
           <div className="detail-meta">
             <StarRating rating={4.5} />
             <span className="detail-rating-text">4.5 / 5.0</span>
@@ -129,18 +116,15 @@ function ProductDetail({ viewMode }) {
             </span>
           </div>
 
-          {/* Precio grande */}
           <div className="detail-price-big">
             {formatPrice(product.price)}
           </div>
 
-          {/* Envío */}
           <div className="detail-shipping">
             <MdLocalShipping className="shipping-icon" />
             <span>Envío gratis a todo Colombia</span>
           </div>
 
-          {/* Botones acción */}
           <div className="detail-actions">
             <button
               className={`detail-cart-btn ${inCart ? "in-cart" : ""}`}
@@ -157,27 +141,40 @@ function ProductDetail({ viewMode }) {
             </button>
           </div>
 
-          
-
-          {/* Especificaciones */}
-          {product.specs && (
-            <div className="detail-card detail-specs-card">
-              <h3 className="detail-card-title">⚙️ Especificaciones técnicas</h3>
-              <div className="detail-specs-grid">
-                {Object.entries(product.specs).map(([key, value]) => (
-                  <div key={key} className="detail-spec-row">
-                    <span className="spec-key">{key}</span>
-                    <span className="spec-value">{value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
+          {/* Categoría */}
+          <div className="detail-category-info">
+            <span className="detail-category-label">Categoría</span>
+            <span className="detail-category-value">{product.category}</span>
+          </div>
         </div>
       </div>
 
-      {/* Productos relacionados */}
+      {/* ===== ZONA 3: DESCRIPCIÓN + SPECS ===== */}
+      <div className="detail-zone3">
+
+        {/* Descripción */}
+        <div className="detail-card detail-description-card">
+          <h3 className="detail-card-title">📋 Descripción</h3>
+          <p className="detail-description-text">{product.description}</p>
+        </div>
+
+        {/* Especificaciones */}
+        {product.specs && (
+          <div className="detail-card detail-specs-card">
+            <h3 className="detail-card-title">⚙️ Especificaciones técnicas</h3>
+            <div className="detail-specs-grid">
+              {Object.entries(product.specs).map(([key, value]) => (
+                <div key={key} className="detail-spec-row">
+                  <span className="spec-key">{key}</span>
+                  <span className="spec-value">{value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* ===== ZONA 4: RELACIONADOS ===== */}
       {related.length > 0 && (
         <div className="detail-related">
           <h2 className="detail-related-title">👀 Productos que podrían interesarte</h2>
@@ -185,12 +182,12 @@ function ProductDetail({ viewMode }) {
             {related.map((p) => (
               <Card
                 key={p.id}
+                id={p.id}
                 name={p.name}
                 price={p.price}
                 image={p.image}
                 description={p.description}
                 viewMode="grid"
-                id={p.id}
               />
             ))}
           </div>

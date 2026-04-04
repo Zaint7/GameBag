@@ -9,6 +9,7 @@ import CardGrid from "./components/cards/CardGrid";
 import Filter from "./components/buttoms/Filter";
 import ScrollToTop from "./components/buttoms/ScrollToTop";
 import Sidebar from "./components/navbars/Sidebar";
+import Cart from "./components/cards/Cart";
 import LoginModal from "./components/modals/LoginModal";
 import RegisterModal from "./components/modals/RegisterModal";
 import ProductDetail from "./components/cards/ProductDetail";
@@ -30,6 +31,7 @@ function App() {
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
 
   return (
     <BrowserRouter>
@@ -38,9 +40,11 @@ function App() {
           onLoginClick={() => setShowLogin(true)}
           onRegisterClick={() => setShowRegister(true)}
           onMenuClick={() => setSidebarOpen(true)}
+          onCartClick={() => setCartOpen(true)}
         />
 
         <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+        <Cart isOpen={cartOpen} onClose={() => setCartOpen(false)} />
 
         <Routes>
           <Route path="/" element={<MainPage />} />

@@ -14,14 +14,14 @@ function Card({ id, name, price, image, description, viewMode }) {
     value.toLocaleString("es-CO", { style: "currency", currency: "COP", minimumFractionDigits: 0 });
 
   const handleCartClick = (e) => {
-    e.stopPropagation();
-    if (inCart) {
-      removeFromCart();
-    } else {
-      addToCart();
-    }
-    setInCart(!inCart);
-  };
+  e.stopPropagation();
+  if (inCart) {
+    removeFromCart(id);
+  } else {
+    addToCart({ id, name, price, image });
+  }
+  setInCart(!inCart);
+};
 
   const handleHeartClick = (e) => {
     e.stopPropagation();
