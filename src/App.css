@@ -2140,6 +2140,206 @@ body {
 
 
 
+/* =============================================
+   CATEGORY PAGE
+   ============================================= */
+
+.category-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 24px 80px 24px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Header */
+.category-page-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.category-page-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #222;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.category-page-subtitle {
+  font-size: 0.88rem;
+  color: #888;
+  font-weight: 500;
+}
+
+/* Tabs de marca */
+.brand-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.brand-tab {
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.brand-tab:hover {
+  border-color: #44b2d0;
+  color: #44b2d0;
+}
+
+.brand-tab--active {
+  background-color: #44b2d0;
+  border-color: #44b2d0;
+  color: white;
+}
+
+/* Barra de filtros */
+.category-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  margin-bottom: 24px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: 2px solid #73d3f3;
+  flex-wrap: wrap;
+}
+
+.category-filter-bar .view-toggle {
+  margin-top: 0;
+}
+
+.category-filter-bar .filter-button {
+  margin-top: 0;
+}
+
+/* Contador de resultados */
+.category-results-count {
+  margin-left: auto;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  color: #44b2d0;
+  font-weight: 700;
+  background: white;
+  border: 1px solid #d4edf5;
+  border-radius: 6px;
+  padding: 4px 12px;
+  white-space: nowrap;
+}
+
+/* Sin resultados */
+.category-no-results {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 60px 0;
+  color: #aaa;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+}
+
+/* Página no encontrada */
+.category-page-not-found {
+  text-align: center;
+  padding: 80px 24px;
+  font-family: 'Montserrat', sans-serif;
+  color: #444;
+}
+
+.category-page-not-found h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .category-page {
+    padding: 24px 16px 60px 16px;
+  }
+
+  .category-page-title {
+    font-size: 1.4rem;
+  }
+
+  .brand-tabs {
+    gap: 8px;
+  }
+
+  .brand-tab {
+    padding: 6px 14px;
+    font-size: 0.78rem;
+  }
+
+  .category-filter-bar {
+    gap: 10px;
+    padding: 12px 14px;
+  }
+
+  .category-results-count {
+    margin-left: 0;
+  }
+}
+
+
+
+.category-coming-soon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  gap: 16px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+.coming-soon-icon {
+  font-size: 4rem;
+}
+
+.category-coming-soon h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #222;
+}
+
+.category-coming-soon p {
+  font-size: 0.95rem;
+  color: #888;
+  line-height: 1.7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

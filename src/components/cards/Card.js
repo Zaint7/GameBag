@@ -5,9 +5,9 @@ import { useCart } from "../../CartContext";
 import { useNavigate } from "react-router-dom";
 
 function Card({ id, name, price, image, description, viewMode }) {
-  const [inCart, setInCart] = useState(false);
-  const [liked, setLiked] = useState(false);
-  const { addToCart, removeFromCart } = useCart();
+const [liked, setLiked] = useState(false);
+const { cartItems, addToCart, removeFromCart } = useCart();
+const inCart = cartItems.some((item) => String(item.id) === String(id));
   const navigate = useNavigate();
 
   const formatPrice = (value) =>
@@ -20,7 +20,6 @@ function Card({ id, name, price, image, description, viewMode }) {
   } else {
     addToCart({ id, name, price, image });
   }
-  setInCart(!inCart);
 };
 
   const handleHeartClick = (e) => {

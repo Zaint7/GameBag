@@ -22,23 +22,24 @@ export function CartProvider({ children }) {
 
   // Quitar una unidad (si llega a 0 elimina)
   const removeFromCart = (productId) => {
-    setCartItems((prev) => {
-      const existing = prev.find((item) => item.id === productId);
-      if (existing && existing.quantity > 1) {
-        return prev.map((item) =>
-          item.id === productId
-            ? { ...item, quantity: item.quantity - 1 }
-            : item
-        );
-      }
-      return prev.filter((item) => item.id !== productId);
-    });
-  };
+  setCartItems((prev) => {
+    const existing = prev.find((item) => String(item.id) === String(productId));
+    if (existing && existing.quantity > 1) {
+      return prev.map((item) =>
+        String(item.id) === String(productId)
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      );
+    }
+    return prev.filter((item) => String(item.id) !== String(productId));
+  });
+};
 
   // Eliminar producto completo
-  const deleteFromCart = (productId) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== productId));
-  };
+const deleteFromCart = (productId) => {
+  setCartItems((prev) => prev.filter((item) => String(item.id) !== String(productId)));
+};
+
 
   // Total de unidades (para el badge)
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);

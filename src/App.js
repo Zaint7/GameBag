@@ -13,6 +13,9 @@ import Cart from "./components/cards/Cart";
 import LoginModal from "./components/modals/LoginModal";
 import RegisterModal from "./components/modals/RegisterModal";
 import ProductDetail from "./components/cards/ProductDetail";
+import CategoryPage from "./components/cards/CategoryPage";
+
+
 
 function MainPage() {
   const [viewMode, setViewMode] = useState("grid");
@@ -49,8 +52,8 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/producto/:id" element={<ProductDetail />} />
-          <Route path="/categoria/:slug" element={<div style={{ padding: "40px", color: "#333", fontFamily: "Montserrat" }}>Página de categoría — próximamente</div>} />
-          <Route path="/categoria/:slug/:sub" element={<div style={{ padding: "40px", color: "#333", fontFamily: "Montserrat" }}>Subcategoría — próximamente</div>} />
+          <Route path="/categoria/:slug" element={<CategoryPage />} />
+          <Route path="/categoria/:slug/:sub" element={<CategoryPage />} />
         </Routes>
 
         <ScrollToTop />

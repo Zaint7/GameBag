@@ -17,10 +17,10 @@ const categories = [
     subcategories: [],
   },
   {
-    label: "Tarjetas Gráficas",
+    label: "Sets y Combos",
     icon: <MdComputer />,
-    slug: "tarjetas-graficas",
-    subcategories: ["Nvidia", "AMD", "Intel"],
+    slug: "sets-y-combos",
+    subcategories: ["Gamer", "Oficina", "Streaming"],
   },
   {
     label: "Consolas",
