@@ -2327,6 +2327,94 @@ body {
 
 
 
+/* SETS PAGE */
+.sets-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px 80px 24px;
+}
+
+.sets-hero {
+  width: 100%;
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0.9; 
+}
+
+
+
+.sets-hero-overlay {
+  text-align: center;
+  border-radius: 16px;
+  padding: 12px 24px 24px;
+}
+
+.sets-hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.sets-hero-subtitle {
+  font-size: 1rem;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Badge del tag en la card */
+.sets-tag-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.65);
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+  z-index: 2;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* Lista de includes en SetDetail */
+.set-includes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.set-includes-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #444;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.set-includes-icon {
+  color: #44b2d0;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
 
 
 

@@ -14,7 +14,8 @@ import LoginModal from "./components/modals/LoginModal";
 import RegisterModal from "./components/modals/RegisterModal";
 import ProductDetail from "./components/cards/ProductDetail";
 import CategoryPage from "./components/cards/CategoryPage";
-
+import SetsPage from "./components/cards/SetsPage";
+import SetDetail from "./components/cards/SetDetail";
 
 
 function MainPage() {
@@ -54,6 +55,8 @@ function App() {
           <Route path="/producto/:id" element={<ProductDetail />} />
           <Route path="/categoria/:slug" element={<CategoryPage />} />
           <Route path="/categoria/:slug/:sub" element={<CategoryPage />} />
+          <Route path="/sets" element={<SetsPage />} />
+          <Route path="/sets/:id" element={<SetDetail />} />
         </Routes>
 
         <ScrollToTop />

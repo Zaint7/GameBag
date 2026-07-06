@@ -8,6 +8,8 @@ import { FaHeadset, FaTshirt, FaMobileAlt } from "react-icons/fa";
 import { SiNintendoswitch } from "react-icons/si";
 import { TbDeviceGamepad2 } from "react-icons/tb";
 import { IoGameControllerOutline } from "react-icons/io5";
+import ROUTES from "../../config/routes";
+
 
 const categories = [
   {
@@ -83,9 +85,10 @@ function Sidebar({ isOpen, onClose }) {
   const navigate = useNavigate();
 
   const handleCategoryClick = (slug) => {
-    navigate(`/categoria/${slug}`);
-    onClose();
-  };
+  const route = ROUTES[slug] || `/categoria/${slug}`;
+  navigate(route);
+  onClose();
+};
 
   const handleSubcategoryClick = (e, catSlug, sub) => {
     e.stopPropagation();
